@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <template id="az_kiosk_attendance.public_kiosk_mode"-->
+<!--              name="Attendance Kiosk"-->
+<!--              inherit_id="hr_attendance.public_kiosk_mode">-->
+<!--        <xpath expr="//t[@t-set='head']" position="inside">-->
+<!--            <t t-call-assets="az_kiosk_attendance.assets_public_attendance" t-js="false"/>-->
+<!--            <t t-call-assets="az_kiosk_attendance.assets_public_attendance" t-css="false"/>-->
+<!--        </xpath>-->
+<!--    </template>-->
+</odoo>

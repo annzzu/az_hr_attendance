@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+<t t-name="az_project_attendance.attendance_menu" t-inherit="hr_attendance.attendance_menu"
+   t-inherit-mode="extension" owl="1">
+    <xpath expr="//div[hasclass('o_att_menu_container')]" position="inside">
+       <ProjectAttendanceForm additionalInfo="this.additionalInfo"
+                              projectsDict="this.state.projectsDict"
+                              onAdditionalInfoChange="(d)=>this.onAdditionalInfoChange(d)"
+                              checkedIn="this.state.checkedIn"
+       />
+    </xpath>
+</t>
+
+</templates>
