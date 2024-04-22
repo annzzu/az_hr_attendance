@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+<t t-name="hr_attendance.public_kiosk_greetings"
+   t-inherit="hr_attendance.public_kiosk_greetings"
+   t-inherit-mode="extension" owl="1">
+      <xpath expr="//button[hasclass('o_hr_attendance_button_dismiss')][1]" position="before">
+          <t t-value="this.props.employeeData['ongoing_attendance']" t-set="ongoingAttendance"/>
+          <t t-if="ongoingAttendance and ongoingAttendance['full_info']">
+               <t t-value="ongoingAttendance['full_info']" t-set="ongoingAttendance"/>
+              <t t-value="ongoingAttendance['project_name']" t-set="project_name"/>
+              <t t-value="ongoingAttendance['task_name']" t-set="task_name"/>
+              <div class="alert alert-info mx-3" role="status">
+                    <h5 t-if="project_name">
+                        <span t-esc="project_name"/>
+                        <t t-if="task_name">
+                            # <span t-esc="task_name"/>
+                        </t>
+                        <br/>
+                    </h5>
+                  <span t-if="ongoingAttendance['description']" t-esc="ongoingAttendance['description']"/>
+                </div>
+            </t>
+      </xpath>
+</t>
+
+</templates>

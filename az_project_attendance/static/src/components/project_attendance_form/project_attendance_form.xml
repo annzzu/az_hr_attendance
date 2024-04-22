@@ -2,15 +2,15 @@
 <templates xml:space="preserve">
 <t t-name="az_project_attendance.ProjectAttendanceForm">
     <div name="attendance_additional_info">
-            <div class="o_project_selector" t-if="this.props.projectsDict">
+            <div class="o_project_selector" t-if="showProjectForm()">
                 <label for="project_id">Project:</label>
                 <select class="form-control"
                         id="project_selection"
                         t-on-change="onProjectSelected"
                         t-att-disabled="this.props.checkedIn">
                     <option value="" disabled="true" hidden="true"
-                            t-att-selected="!this.props.additionalInfo.project_id">Project...</option>
-                    <t t-foreach="this.props.projectsDict or []" t-as="project" t-key="project['id']">
+                            t-att-selected="!this.state.project_id">Project...</option>
+                    <t t-foreach="this.props.project_list or []" t-as="project" t-key="project['id']">
                             <option t-att-value="project['id']"
                                     t-att-selected="project['id'] == this.state.project_id"
                                     t-att-key="project['id']">
@@ -19,15 +19,15 @@
                     </t>
                 </select>
             </div>
-        <div class="o_task_selector" t-if="this.state.tasksDict">
+        <div class="o_task_selector" t-if="this.state.task_list and this.state.project_id">
                 <label for="task_id">Task:</label>
             <select class="form-control"
                     id="task_selection"
                     t-on-change="onTaskSelected"
                     t-att-disabled="this.props.checkedIn">
                     <option value="" disabled="true" hidden="true"
-                            t-att-selected="!this.props.additionalInfo.task_id">Task...</option>
-                <t t-foreach="this.state.tasksDict or []" t-as="task" t-key="task['id']">
+                            t-att-selected="!this.state.task_id">Task...</option>
+                <t t-foreach="this.state.task_list or []" t-as="task" t-key="task['id']">
                         <option t-att-value="task['id']"
                                 t-att-selected="task['id'] == this.state.task_id"
                                 t-att-key="task['id']">
@@ -37,9 +37,9 @@
                 </select>
             </div>
         <div class="o_description">
-            <label for="description">Description</label>
+            <label for="description">Description:</label>
             <textarea id="description" class="form-control" rows="2"
-                      t-att-value="this.props.additionalInfo.description"
+                      t-att-value="this.state.description"
                       t-on-change="onDescriptionChange"/>
             </div>
         </div>
