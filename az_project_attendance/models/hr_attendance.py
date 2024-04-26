@@ -5,11 +5,10 @@ from odoo.exceptions import ValidationError
 class HrAttendance(models.Model):
     _inherit = "hr.attendance"
 
-    project_id = fields.Many2one("project.project", required=True)
+    project_id = fields.Many2one("project.project")
     task_id = fields.Many2one(
         "project.task",
         domain="['|',('project_id', '=', False),('project_id', '=', project_id)]",
-        required=True,
     )
     description = fields.Text()
 
