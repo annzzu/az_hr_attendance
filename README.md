@@ -10,7 +10,9 @@ The AZ Project Attendance is a module that extends the functionality of the hr_a
 It allows users/employees to record their attendance with additional information such as the project, task, and
 description.
 
-# ONLINE AVAILABLE : <a href="https://5dba-46-49-48-30.ngrok-free.app">Odoo Apps</a>
+# ONLINE AVAILABLE : <a href="http://annzzu.duckdns.org/">Odoo Apps</a>
+
+http://annzzu.duckdns.org/
 
 ### Credentials:
 
